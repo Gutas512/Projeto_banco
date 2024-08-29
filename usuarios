@@ -1,4 +1,4 @@
-from usuarios import Usuarios
+from usuario import Usuarios
 import tkinter as tk
 from tkinter import ttk, Frame, Label, Entry, Button, END, INSERT
 import sqlite3
