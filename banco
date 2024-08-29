@@ -40,8 +40,10 @@ class Banco:
             idcliente INTEGER PRIMARY KEY AUTOINCREMENT,
             nomecli TEXT,
             cpf TEXT,
-            email TEXT,
-            telefone TEXT
+            data_nascimento TEXT,
+            genero TEXT,
+            idcidade INTEGER,
+            FOREIGN KEY (idcidade) REFERENCES cidades(idcidade)
         )""")
         self.conexao.commit()
         c.close()
