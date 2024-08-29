@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import *
 from banco import Banco
-from usuario import Clientes, Cidades  # Certifique-se de que o arquivo usuario.py e as classes estão corretos.
+from usuario import Clientes, Cidades 
 
 
 def fetch_data_clients():
