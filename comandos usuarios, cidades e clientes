@@ -135,21 +135,22 @@ class Cidades:
             return f"Ocorreu um erro na busca da cidade: {str(e)}"
 
 class Clientes:
-    def __init__(self, idcliente=0, nomecli="", cpf="", email="", telefone=""):
+    def __init__(self, idcliente=0, nomecli="", cpf="", data_nascimento="", genero="", idcidade=0):
         self.idcliente = idcliente
         self.nomecli = nomecli
         self.cpf = cpf
-        self.email = email
-        self.telefone = telefone
+        self.data_nascimento = data_nascimento
+        self.genero = genero
+        self.idcidade = idcidade
 
     def insertCliente(self):
         banco = Banco()
         try:
             c = banco.conexao.cursor()
             c.execute("""
-                INSERT INTO clientes (nomecli, cpf, email, telefone) 
-                VALUES (?, ?, ?, ?)
-            """, (self.nomecli, self.cpf, self.email, self.telefone))
+                INSERT INTO clientes (nomecli, cpf, data_nascimento, genero, idcidade) 
+                VALUES (?, ?, ?, ?, ?)
+            """, (self.nomecli, self.cpf, self.data_nascimento, self.genero, self.idcidade))
             banco.conexao.commit()
             c.close()
             return "Cliente cadastrado com sucesso!"
@@ -162,9 +163,9 @@ class Clientes:
             c = banco.conexao.cursor()
             c.execute("""
                 UPDATE clientes 
-                SET nomecli = ?, cpf = ?, email = ?, telefone = ? 
+                SET nomecli = ?, cpf = ?, data_nascimento = ?, genero = ?, idcidade = ? 
                 WHERE idcliente = ?
-            """, (self.nomecli, self.cpf, self.email, self.telefone, self.idcliente))
+            """, (self.nomecli, self.cpf, self.data_nascimento, self.genero, self.idcidade, self.idcliente))
             banco.conexao.commit()
             c.close()
             return "Cliente atualizado com sucesso!"
@@ -192,8 +193,9 @@ class Clientes:
                 self.idcliente = linha[0]
                 self.nomecli = linha[1]
                 self.cpf = linha[2]
-                self.email = linha[3]
-                self.telefone = linha[4]
+                self.data_nascimento = linha[3]
+                self.genero = linha[4]
+                self.idcidade = linha[5]  # Adicionado o ID da cidade
                 c.close()
                 return "Busca feita com sucesso!"
             else:
