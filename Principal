@@ -188,7 +188,6 @@ class ApplicationUsuarios:
         self.treeview.bind("<ButtonRelease-1>", self.on_treeview_select)
         self.update_treeview()
 
-        # Botão "Sair"
         self.btn_sair = Button(master, text="Sair", command=master.destroy, font=("Verdana", "12"))
         self.btn_sair.pack(pady=10)
 
