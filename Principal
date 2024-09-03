@@ -41,7 +41,7 @@ class TelaLogin:
 
         if self.validar_login(usuario, senha):
             self.master.destroy()  # Fecha a tela de login
-            self.abrir_tela_principal()
+            
         else:
             messagebox.showerror("Erro", "Usuário ou senha incorretos.")
 
@@ -57,10 +57,7 @@ class TelaLogin:
             print(f"Erro ao validar login: {e}")
             return False
 
-    def abrir_tela_principal(self):
-        root = tk.Tk()
-        app = MainApplication(root)
-        root.mainloop()
+
 
 class MainApplication:
     def __init__(self, master=None):
