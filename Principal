@@ -385,7 +385,7 @@ class ApplicationUsuarios:
             # Ajustando a fonte e o layout da tabela
             tabela.auto_set_font_size(False)
             tabela.set_fontsize(10)
-            tabela.scale(1.2, 1.2)
+            tabela.scale(2, 2)
 
             # Salvando a tabela no PDF
             pdf.savefig(fig, bbox_inches='tight')
@@ -428,7 +428,7 @@ class ApplicationUsuarios:
         btn_abrir.pack(pady=5)
 
     def abrir_pdf(self, listbox):
-        """Abre o PDF selecionado pelo usuário."""
+        # Abre o PDF selecionado pelo usuário.
         selecionado = listbox.curselection()
         if not selecionado:
             messagebox.showwarning("Atenção", "Selecione um PDF para abrir.")
